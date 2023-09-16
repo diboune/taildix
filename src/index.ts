@@ -10,12 +10,11 @@ const base = (color: Color) => ({
 
 export default plugin.withOptions(
   // if no colors are passed, we're using all of the radix colors
-  ({ colors }: { colors?: Color[] }) =>
-    !colors
-      ? ({ addBase }) => radix_scales.map((color) => addBase(base(color)))
-      : ({ addBase }) => colors.map((color) => addBase(base(color))),
+  (opts: { colors: Color[] } = { colors: [...radix_scales] }) =>
+    ({ addBase }) =>
+      opts.colors.map((color) => addBase(base(color))),
 
-  ({ colors }) => ({
-    theme: { extend: { colors: getUtils(colors) } },
+  (opts = { colors: [...radix_scales] }) => ({
+    theme: { extend: { colors: { ...getUtils(opts.colors) } } },
   })
 );

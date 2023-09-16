@@ -5,13 +5,12 @@
   "types": "./build/index.d.ts",
   "type": "module",
   "license": "MIT",
-  "version": "0.0.3",
+  "version": "0.0.10",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "build": "bun index.ts",
-    "prepare": "bun run build",
     "release": "bun run build && changeset publish"
   },
   "devDependencies": {
