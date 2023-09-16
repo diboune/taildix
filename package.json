@@ -1,16 +1,17 @@
 {
   "name": "@taildix/colors",
-  "module": "./dist/index.js",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "module": "./build/index.js",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "type": "module",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "build": "bun index.ts",
+    "prepare": "bun run build",
     "release": "bun run build && changeset publish"
   },
   "devDependencies": {
